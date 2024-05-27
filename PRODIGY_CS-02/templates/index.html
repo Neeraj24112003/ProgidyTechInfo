@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Encryption Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            margin-bottom: 20px;
+        }
+        .input-field label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .input-field input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        .input-field select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Encryption Tool</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="input-field">
+                <label for="image">Select Image:</label>
+                <input type="file" id="image" name="image">
+            </div>
+            <div class="input-field">
+                <label for="encryption_method">Select Encryption Method:</label>
+                <select id="encryption_method" name="encryption_method">
+                    <option value="swap_pixels">Swap Pixels</option>
+                    <option value="add_value">Add Value</option>
+                    <option value="multiply_value">Multiply Value</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <input type="radio" id="encrypt" name="action" value="encrypt">
+                <label for="encrypt">Encrypt</label>
+                <input type="radio" id="decrypt" name="action" value="decrypt">
+                <label for="decrypt">
+                <label for="decrypt">Decrypt</label>
+            </div>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+</body>
+</html>
+
