@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caesar Cipher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            margin-bottom: 20px;
+        }
+        .input-field label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .input-field input[type="text"], .input-field input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        .input-field input[type="radio"] {
+            margin: 10px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #3e8e41;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Caesar Cipher</h1>
+        <form action="" method="post">
+            <div class="input-field">
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message" value="{{ message }}">
+            </div>
+            <div class="input-field">
+                <label for="shift">Shift:</label>
+                <input type="number" id="shift" name="shift" value="{{ shift }}">
+            </div>
+            <div class="input-field">
+                <input type="radio" id="encrypt" name="action" value="encrypt" {{ 'checked' if action == 'encrypt' else '' }}>
+                <label for="encrypt">Encrypt</label>
+                <input type="radio" id="decrypt" name="action" value="decrypt" {{ 'checked' if action == 'decrypt' else '' }}>
+                <label for="decrypt">Decrypt</label>
+            </div>
+            <input type="submit" value="Submit" class="button">
+        </form>
+        {% if result %}
+            <div class="result">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const messageInput = document.getElementById('message');
+        const shiftInput = document.getElementById('shift');
+        const encryptRadio = document.getElementById('encrypt');
+        const decryptRadio = document.getElementById('decrypt');
+
+        messageInput.addEventListener('input', () => {
+            messageInput.value = messageInput.value.replace(/[^a-zA-Z0-9\s]/g, '');
+        });
+
+        shiftInput.addEventListener('input', () => {
+            shiftInput.value = shiftInput.value.replace(/[^0-9]/g, '');
+        });
